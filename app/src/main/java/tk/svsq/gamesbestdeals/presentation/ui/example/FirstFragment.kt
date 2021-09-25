@@ -1,4 +1,4 @@
-package tk.svsq.gamesbestdeals
+package tk.svsq.gamesbestdeals.presentation.ui.example
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import tk.svsq.gamesbestdeals.R
 import tk.svsq.gamesbestdeals.databinding.FragmentFirstBinding
 
 /**
