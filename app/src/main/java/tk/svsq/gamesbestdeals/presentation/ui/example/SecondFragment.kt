@@ -14,30 +14,15 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import tk.svsq.gamesbestdeals.R
 import tk.svsq.gamesbestdeals.databinding.FragmentSecondBinding
-import tk.svsq.gamesbestdeals.presentation.base.Status
+import tk.svsq.gamesbestdeals.data.common.Status
+import tk.svsq.gamesbestdeals.presentation.base.BaseFragment
+import tk.svsq.gamesbestdeals.presentation.common.viewBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 @AndroidEntryPoint
-class SecondFragment : Fragment() {
+class SecondFragment : BaseFragment(R.layout.fragment_second) {
 
-    private var _binding: FragmentSecondBinding? = null
+    private val binding by viewBinding(FragmentSecondBinding::bind)
     private val viewModel: SecondViewModel by viewModels()
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
-        return binding.root
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -58,10 +43,5 @@ class SecondFragment : Fragment() {
                 }
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
