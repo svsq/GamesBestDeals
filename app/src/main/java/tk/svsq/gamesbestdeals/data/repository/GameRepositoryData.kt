@@ -28,6 +28,14 @@ class GameRepositoryData @Inject constructor (
         )
     }
 
+    override suspend fun editAlert(): Result<Boolean> {
+        return request(
+            response = gameApi.editAlert(),
+            transform = { it },
+            default = false
+        )
+    }
+
 }
 
 internal fun <T, R> request(response: Response<T>, transform: (T) -> R, default: T): Result<R> =

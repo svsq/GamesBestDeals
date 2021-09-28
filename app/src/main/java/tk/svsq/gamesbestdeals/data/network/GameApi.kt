@@ -10,4 +10,7 @@ interface GameApi {
     @GET("stores")
     suspend fun getStoresList(): Response<List<StoreApiModel>>
 
+    @GET("alerts")
+    suspend fun editAlert(): Response<Boolean>
+
 }

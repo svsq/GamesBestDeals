@@ -6,4 +6,6 @@ interface GameRepository {
 
     suspend fun getStoresList(): Result<List<Store>>
 
+    suspend fun editAlert(): Result<Boolean>
+
 }
