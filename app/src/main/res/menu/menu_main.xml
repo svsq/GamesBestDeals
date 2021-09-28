@@ -1,10 +1,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="tk.svsq.gamesbestdeals.presentation.activity.AppActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/navigation_home"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="@string/navigation_home"
+        android:enabled="true" />
+
+    <item
+        android:id="@+id/navigation_games"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="@string/navigation_games"
+        android:enabled="true" />
+
+    <item
+        android:id="@+id/navigation_alerts"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="@string/navigation_alerts"
+        android:enabled="true" />
 </menu>
