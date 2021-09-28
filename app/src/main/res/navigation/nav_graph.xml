@@ -3,26 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/navigation_home">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/navigation_home"
         android:name="tk.svsq.gamesbestdeals.presentation.ui.example.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/navigation_games" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/navigation_games"
         android:name="tk.svsq.gamesbestdeals.presentation.ui.example.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_alerts"
+        android:name="tk.svsq.gamesbestdeals.presentation.ui.example.ThirdFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_third">
     </fragment>
 </navigation>
