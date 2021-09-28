@@ -5,7 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import tk.svsq.gamesbestdeals.domain.interactor.GetStoresListUseCase
 import tk.svsq.gamesbestdeals.domain.model.Store
-import tk.svsq.gamesbestdeals.presentation.base.Resource
+import tk.svsq.gamesbestdeals.data.common.Resource
 import javax.inject.Inject
 
 @HiltViewModel

@@ -1,4 +1,4 @@
-package tk.svsq.gamesbestdeals.presentation.base
+package tk.svsq.gamesbestdeals.data.common
 
 data class Resource<out T>(val status: Status, val data: T?, val error: Throwable?) {
 
