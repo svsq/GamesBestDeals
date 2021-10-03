@@ -26,7 +26,7 @@ class DealMapper @Inject constructor() : Mapper<DealApiModel, Deal>() {
             metacriticScore = metacriticScore ?: "",
             steamRatingText = steamRatingText ?: "",
             steamRatingPercent = steamRatingPercent ?: "",
-            steamRatingCount = steamRatingCount,
+            steamRatingCount = steamRatingCount ?: "",
             steamAppID = steamAppID ?: "",
             releaseDate = releaseDate ?: -1,
             lastChange = lastChange ?: -1,

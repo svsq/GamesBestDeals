@@ -16,7 +16,7 @@ data class DealApiModel(
     @SerializedName("metacriticScore") val metacriticScore: String?,
     @SerializedName("steamRatingText") val steamRatingText: String?,
     @SerializedName("steamRatingPercent") val steamRatingPercent: String?,
-    @SerializedName("steamRatingCount") val steamRatingCount: String,
+    @SerializedName("steamRatingCount") val steamRatingCount: String?,
     @SerializedName("steamAppID") val steamAppID: String?,
     @SerializedName("releaseDate") val releaseDate: Long?,
     @SerializedName("lastChange") val lastChange: Long?,
