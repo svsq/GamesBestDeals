@@ -14,15 +14,14 @@ class AppActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAppBinding
 
-    private lateinit var navController: NavController
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        navController = findNavController(R.id.nav_host_fragment)
-        binding.bottomNavigationView.setupWithNavController(navController)
+        findNavController(R.id.nav_host_fragment).apply {
+            binding.bottomNavigationView.setupWithNavController(this)
+        }
     }
 }

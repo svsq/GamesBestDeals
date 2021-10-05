@@ -4,9 +4,11 @@ import okhttp3.Headers
 import retrofit2.Call
 import retrofit2.HttpException
 import retrofit2.Response
+import tk.svsq.gamesbestdeals.data.mapper.DealMapper
 import tk.svsq.gamesbestdeals.data.mapper.StoreMapper
 import tk.svsq.gamesbestdeals.data.network.GameApi
 import tk.svsq.gamesbestdeals.data.network.tools.exceptions.RetrofitException
+import tk.svsq.gamesbestdeals.domain.model.Deal
 import tk.svsq.gamesbestdeals.domain.model.Store
 import tk.svsq.gamesbestdeals.domain.repository.GameRepository
 import java.io.IOException
@@ -17,17 +19,25 @@ import javax.inject.Singleton
 @Singleton
 class GameRepositoryData @Inject constructor (
     private val gameApi: GameApi,
-    private val mapper: StoreMapper,
+    private val storeMapper: StoreMapper,
+    private val dealMapper: DealMapper
 ) : GameRepository {
 
     override suspend fun getStoresList(): Result<List<Store>> {
         return request(
             response = gameApi.getStoresList(),
-            transform = { mapper.map(it) },
+            transform = { storeMapper.map(it) },
             default = emptyList()
         )
     }
 
+    override suspend fun getDealsList(storeId: String, upperPrice: String): Result<List<Deal>> {
+        return request(
+            response = gameApi.getDealsList(storeId, upperPrice),
+            transform = { dealMapper.map(it) },
+            default = emptyList()
+        )
+    }
 }
 
 internal fun <T, R> request(response: Response<T>, transform: (T) -> R, default: T): Result<R> =
