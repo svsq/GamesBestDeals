@@ -25,7 +25,7 @@ class SecondFragment : BaseFragment(R.layout.fragment_second) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            navigateTo(R.id.action_SecondFragment_to_FirstFragment)
         }
         observeStoresList()
     }

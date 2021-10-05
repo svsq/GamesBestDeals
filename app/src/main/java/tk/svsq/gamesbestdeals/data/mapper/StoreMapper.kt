@@ -26,5 +26,4 @@ class StoreMapper @Inject constructor() : Mapper<StoreApiModel, Store>() {
             images = StoreImagesApiModel(banner = images?.banner, logo = images?.logo, icon = images?.icon)
         )
     }
-
 }

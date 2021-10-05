@@ -7,13 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="tk.svsq.gamesbestdeals.presentation.ui.example.FirstFragment"
+        android:name="tk.svsq.gamesbestdeals.presentation.ui.deals.DealsFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/navigation_games" />
+        tools:layout="@layout/fragment_deals">
     </fragment>
     <fragment
         android:id="@+id/navigation_games"
