@@ -1,12 +1,12 @@
 package tk.svsq.gamesbestdeals.data.repository
 
 import okhttp3.Headers
-import retrofit2.Call
 import retrofit2.HttpException
 import retrofit2.Response
 import tk.svsq.gamesbestdeals.data.mapper.StoreMapper
 import tk.svsq.gamesbestdeals.data.network.GameApi
 import tk.svsq.gamesbestdeals.data.network.tools.exceptions.RetrofitException
+import tk.svsq.gamesbestdeals.domain.model.favorites.Alert
 import tk.svsq.gamesbestdeals.domain.model.Store
 import tk.svsq.gamesbestdeals.domain.repository.GameRepository
 import java.io.IOException
@@ -28,9 +28,14 @@ class GameRepositoryData @Inject constructor (
         )
     }
 
-    override suspend fun editAlert(): Result<Boolean> {
+    override suspend fun editAlert(item: Alert): Result<Boolean> {
         return request(
-            response = gameApi.editAlert(),
+            response = gameApi.editAlert(
+                action = item.action.type,
+                email = item.email,
+                gameID = item.gameID,
+                price = item.price
+            ),
             transform = { it },
             default = false
         )
