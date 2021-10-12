@@ -1,7 +1,9 @@
 package tk.svsq.gamesbestdeals.domain.repository
 
+import retrofit2.http.Query
 import tk.svsq.gamesbestdeals.domain.model.favorites.Alert
 import tk.svsq.gamesbestdeals.domain.model.Deal
+import tk.svsq.gamesbestdeals.domain.model.Game
 import tk.svsq.gamesbestdeals.domain.model.Store
 
 interface GameRepository {
@@ -11,4 +13,12 @@ interface GameRepository {
     suspend fun editAlert(item: Alert): Result<Boolean>
 
     suspend fun getDealsList(storeId: String, upperPrice: String): Result<List<Deal>>
+
+    suspend fun getListOfGames(
+        title: String,
+        steamAppID: String? = null,
+        limit: Int,
+        exact: Int,
+    ): Result<List<Game>>
+
 }

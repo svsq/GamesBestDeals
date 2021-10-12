@@ -4,11 +4,13 @@ import okhttp3.Headers
 import retrofit2.HttpException
 import retrofit2.Response
 import tk.svsq.gamesbestdeals.data.mapper.DealMapper
+import tk.svsq.gamesbestdeals.data.mapper.GameMapper
 import tk.svsq.gamesbestdeals.data.mapper.StoreMapper
 import tk.svsq.gamesbestdeals.data.network.GameApi
 import tk.svsq.gamesbestdeals.data.network.tools.exceptions.RetrofitException
 import tk.svsq.gamesbestdeals.domain.model.favorites.Alert
 import tk.svsq.gamesbestdeals.domain.model.Deal
+import tk.svsq.gamesbestdeals.domain.model.Game
 import tk.svsq.gamesbestdeals.domain.model.Store
 import tk.svsq.gamesbestdeals.domain.repository.GameRepository
 import java.io.IOException
@@ -20,7 +22,8 @@ import javax.inject.Singleton
 class GameRepositoryData @Inject constructor (
     private val gameApi: GameApi,
     private val storeMapper: StoreMapper,
-    private val dealMapper: DealMapper
+    private val dealMapper: DealMapper,
+    private val gameMapper: GameMapper,
 ) : GameRepository {
 
     override suspend fun getStoresList(): Result<List<Store>> {
@@ -35,6 +38,19 @@ class GameRepositoryData @Inject constructor (
         return request(
             response = gameApi.getDealsList(storeId, upperPrice),
             transform = { dealMapper.map(it) },
+            default = emptyList()
+        )
+    }
+
+    override suspend fun getListOfGames(
+        title: String,
+        steamAppID: String?,
+        limit: Int,
+        exact: Int
+    ): Result<List<Game>> {
+        return request(
+            response = gameApi.getListOfGames(title, steamAppID, limit, exact),
+            transform = { gameMapper.map(it) },
             default = emptyList()
         )
     }

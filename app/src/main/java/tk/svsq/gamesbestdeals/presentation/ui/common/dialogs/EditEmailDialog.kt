@@ -41,12 +41,13 @@ object EditEmailDialog {
 
                 setCancelable(isCancellable)
                 setPositiveButton(positiveText) { dialog, _ ->
-                    if (Patterns.EMAIL_ADDRESS.matcher(input.text.toString()).matches()) {
+                    /*if (Patterns.EMAIL_ADDRESS.matcher(input.text.toString()).matches()) {
                         dialog.dismiss()
                         okListener?.invoke(input.text.toString())
                     } else {
                         Toast.makeText(context, "wrong email", Toast.LENGTH_SHORT).show()
-                    }
+                    }*/
+                    okListener?.invoke(input.text.toString())
                 }
                 if (!TextUtils.isEmpty(negativeText)) {
                     setNegativeButton(negativeText) { dialog, _ ->
