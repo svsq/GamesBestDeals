@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_margin="8dp"
+    android:layout_margin="@dimen/half_margin"
     android:layout_height="wrap_content"
     app:cardBackgroundColor="@color/light_gray"
-    app:cardCornerRadius="6dp"
+    app:cardCornerRadius="@dimen/rv_card_corners"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +16,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="@dimen/quarter_margin"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivPicture"
@@ -26,7 +26,7 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_title"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 tools:text="Example Game Title" />
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="@dimen/text_release_date"
                 tools:text="Release date: 20.11.1998" />
 
             <TextView
@@ -70,9 +70,9 @@
 
         <ImageView
             android:id="@+id/ivPicture"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_margin="8dp"
+            android:layout_width="@dimen/image_w_h"
+            android:layout_height="@dimen/image_w_h"
+            android:layout_margin="@dimen/half_margin"
             android:scaleType="fitCenter"
             android:contentDescription="Item Image"
             app:layout_constraintBottom_toBottomOf="parent"

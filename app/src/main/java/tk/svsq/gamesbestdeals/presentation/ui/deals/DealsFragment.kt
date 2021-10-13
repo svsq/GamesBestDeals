@@ -22,7 +22,7 @@ class DealsFragment : BaseFragment(R.layout.fragment_deals) {
     private val binding by viewBinding(FragmentDealsBinding::bind)
     private val viewModel: DealsViewModel by viewModels()
 
-    private val dealsAdapter = DealsAdapter()
+    private val dealsAdapter by lazy { DealsAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
