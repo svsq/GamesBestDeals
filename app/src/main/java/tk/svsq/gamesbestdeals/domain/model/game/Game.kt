@@ -1,4 +1,6 @@
-package tk.svsq.gamesbestdeals.domain.model
+package tk.svsq.gamesbestdeals.domain.model.game
+
+import tk.svsq.gamesbestdeals.presentation.ui.search.items.GameMarker
 
 data class Game(
     val gameID: String,
@@ -8,4 +10,4 @@ data class Game(
     val external: String,
     val internalName: String,
     val thumb: String,
-)
+) : GameMarker

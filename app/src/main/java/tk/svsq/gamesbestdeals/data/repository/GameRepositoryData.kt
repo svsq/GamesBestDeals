@@ -10,7 +10,7 @@ import tk.svsq.gamesbestdeals.data.network.GameApi
 import tk.svsq.gamesbestdeals.data.network.tools.exceptions.RetrofitException
 import tk.svsq.gamesbestdeals.domain.model.favorites.Alert
 import tk.svsq.gamesbestdeals.domain.model.Deal
-import tk.svsq.gamesbestdeals.domain.model.Game
+import tk.svsq.gamesbestdeals.domain.model.game.Game
 import tk.svsq.gamesbestdeals.domain.model.Store
 import tk.svsq.gamesbestdeals.domain.repository.GameRepository
 import java.io.IOException

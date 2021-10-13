@@ -1,9 +1,8 @@
 package tk.svsq.gamesbestdeals.domain.repository
 
-import retrofit2.http.Query
 import tk.svsq.gamesbestdeals.domain.model.favorites.Alert
 import tk.svsq.gamesbestdeals.domain.model.Deal
-import tk.svsq.gamesbestdeals.domain.model.Game
+import tk.svsq.gamesbestdeals.domain.model.game.Game
 import tk.svsq.gamesbestdeals.domain.model.Store
 
 interface GameRepository {

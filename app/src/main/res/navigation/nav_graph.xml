@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/navigation_alerts"
-        android:name="tk.svsq.gamesbestdeals.presentation.ui.favorites_flow.FavoritesFragment"
+        android:name="tk.svsq.gamesbestdeals.presentation.ui.search.SearchGamesFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_third">
     </fragment>

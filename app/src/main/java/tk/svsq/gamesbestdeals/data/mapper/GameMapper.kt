@@ -2,7 +2,7 @@ package tk.svsq.gamesbestdeals.data.mapper
 
 import tk.svsq.gamesbestdeals.data.mapper.base.Mapper
 import tk.svsq.gamesbestdeals.data.model.GameApiModel
-import tk.svsq.gamesbestdeals.domain.model.Game
+import tk.svsq.gamesbestdeals.domain.model.game.Game
 import javax.inject.Inject
 
 class GameMapper @Inject constructor() : Mapper<GameApiModel, Game>() {
