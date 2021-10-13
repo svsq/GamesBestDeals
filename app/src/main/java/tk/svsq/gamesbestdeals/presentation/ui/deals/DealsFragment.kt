@@ -22,12 +22,11 @@ class DealsFragment : BaseFragment(R.layout.fragment_deals) {
     private val binding by viewBinding(FragmentDealsBinding::bind)
     private val viewModel: DealsViewModel by viewModels()
 
-    private lateinit var dealsAdapter: DealsAdapter
+    private val dealsAdapter = DealsAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dealsAdapter = DealsAdapter()
         with(binding) {
             rvDeals.adapter = dealsAdapter
             rvDeals.layoutManager = LinearLayoutManager(context)
@@ -37,7 +36,7 @@ class DealsFragment : BaseFragment(R.layout.fragment_deals) {
             viewModel.deals.collectLatest {
                 when (it.status) {
                     Status.SUCCESS -> {
-                        binding.textviewFirst.isVisible = it.data.isNullOrEmpty()
+                        binding.progress.isVisible = it.data.isNullOrEmpty()
                         dealsAdapter.submitList(it.data)
                     }
                     Status.ERROR -> {

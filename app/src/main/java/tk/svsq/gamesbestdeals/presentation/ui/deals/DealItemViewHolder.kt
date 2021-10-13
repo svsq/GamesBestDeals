@@ -1,14 +1,26 @@
 package tk.svsq.gamesbestdeals.presentation.ui.deals
 
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import tk.svsq.gamesbestdeals.databinding.ItemDealBinding
 import tk.svsq.gamesbestdeals.domain.model.Deal
-import tk.svsq.gamesbestdeals.presentation.common.gone
 import tk.svsq.gamesbestdeals.presentation.common.toDateString
 
 class DealItemViewHolder(private val dealItemBinding: ItemDealBinding) :
     RecyclerView.ViewHolder(dealItemBinding.root) {
+
+    companion object {
+        fun newInstance(parent: ViewGroup) =
+            DealItemViewHolder(
+                ItemDealBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false))
+    }
 
         fun bind(deal: Deal) {
             with(dealItemBinding) {
@@ -33,7 +45,7 @@ class DealItemViewHolder(private val dealItemBinding: ItemDealBinding) :
             return "Last change: ${deal.lastChange.toDateString()}"
         }
 
-        dealItemBinding.tvReleaseDate.gone()
+        dealItemBinding.tvReleaseDate.isVisible = false
         return ""
     }
 }
