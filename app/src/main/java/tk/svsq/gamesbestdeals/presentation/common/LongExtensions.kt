@@ -5,11 +5,11 @@ import java.util.*
 
 
 fun Long.toDateString(): String {
-    try {
-        val sdf = SimpleDateFormat("dd/MM/yyyy")
+    return try {
+        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val netDate = Date(this * 1000)
-        return sdf.format(netDate)
+        sdf.format(netDate)
     } catch (e: Exception) {
-        return e.toString()
+        e.toString()
     }
 }
