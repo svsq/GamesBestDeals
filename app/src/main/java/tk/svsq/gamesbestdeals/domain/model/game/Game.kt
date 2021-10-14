@@ -1,7 +1,5 @@
 package tk.svsq.gamesbestdeals.domain.model.game
 
-import tk.svsq.gamesbestdeals.presentation.ui.search.items.GameMarker
-
 data class Game(
     val gameID: String,
     val steamAppID: String? = null,
