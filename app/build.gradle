@@ -74,9 +74,6 @@ dependencies {
     debugImplementation 'com.mocklets:pluto:1.0.7'
     releaseImplementation'com.mocklets:pluto-no-op:1.0.7'
 
-    //prefs
-    implementation "androidx.datastore:datastore-preferences:1.0.0"
-
     // API
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"

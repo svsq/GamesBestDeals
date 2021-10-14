@@ -9,12 +9,12 @@ class GameMapper @Inject constructor() : Mapper<GameApiModel, Game>() {
 
     override fun map(from: GameApiModel) = with(from) {
         Game(
-            gameID = gameID,
-            steamAppID = steamAppID,
-            cheapest = cheapest,
-            cheapestDealID = cheapestDealID,
-            external = external,
-            internalName = internalName,
+            gameID = gameID.orEmpty(),
+            steamAppID = steamAppID.orEmpty(),
+            cheapest = cheapest.orEmpty(),
+            cheapestDealID = cheapestDealID.orEmpty(),
+            external = external.orEmpty(),
+            internalName = internalName.orEmpty(),
             thumb = thumb.orEmpty()
         )
     }

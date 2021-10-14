@@ -24,11 +24,10 @@ class SearchGamesFragment : BaseFragment(R.layout.fragment_search_games) {
     private val binding by viewBinding(FragmentSearchGamesBinding::bind)
     private val viewModel: SearchGamesViewModel by viewModels()
 
-    private var adapter: SearchGamesAdapter? = null
+    private val adapter: SearchGamesAdapter by lazy { SearchGamesAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = SearchGamesAdapter()
         initRecyclerView()
         initListeners()
         observeGames()
@@ -70,7 +69,7 @@ class SearchGamesFragment : BaseFragment(R.layout.fragment_search_games) {
             viewModel.games.collect {
                 when(it.status) {
                     Status.SUCCESS -> {
-                        adapter?.submitList(it.data)
+                        adapter.submitList(it.data)
                     }
                     Status.ERROR -> Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
                     Status.LOADING -> Toast.makeText(requireContext(), "loading", Toast.LENGTH_SHORT).show()
