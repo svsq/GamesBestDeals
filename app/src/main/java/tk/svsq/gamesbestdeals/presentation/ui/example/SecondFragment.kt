@@ -1,10 +1,7 @@
 package tk.svsq.gamesbestdeals.presentation.ui.example
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -37,7 +34,7 @@ class SecondFragment : BaseFragment(R.layout.fragment_second) {
         lifecycleScope.launch {
             viewModel.stores.collectLatest {
                 when(it.status) {
-                    Status.SUCCESS -> Toast.makeText(requireContext(), "${it.data}", Toast.LENGTH_SHORT).show()
+                    Status.SUCCESS -> Toast.makeText(requireContext(), "${it.data?.size}", Toast.LENGTH_SHORT).show()
                     Status.ERROR -> Toast.makeText(requireContext(), "${it.error?.message}", Toast.LENGTH_SHORT).show()
                     Status.LOADING -> Toast.makeText(requireContext(), "loading", Toast.LENGTH_SHORT).show()
                 }

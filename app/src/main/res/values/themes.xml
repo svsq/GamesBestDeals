@@ -22,4 +22,12 @@
     <style name="Theme.GamesBestDeals.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.GamesBestDeals.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:colorAccent">@color/purple_200</item>
+        <item name="android:textColor">@color/purple_500</item>
+        <item name="android:textColorPrimary">@color/purple_700</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:windowBackground">@drawable/bg_dialog</item>
+    </style>
 </resources>
