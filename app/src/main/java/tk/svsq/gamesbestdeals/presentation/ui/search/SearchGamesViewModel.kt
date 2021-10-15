@@ -5,7 +5,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import tk.svsq.gamesbestdeals.data.common.Resource
 import tk.svsq.gamesbestdeals.domain.interactor.SearchGamesUseCase
-import tk.svsq.gamesbestdeals.domain.model.game.Game
 import tk.svsq.gamesbestdeals.domain.model.game.GameMarker
 import javax.inject.Inject
 
@@ -14,7 +13,7 @@ class SearchGamesViewModel @Inject constructor(
     private val searchGamesUseCase: SearchGamesUseCase,
 ) : ViewModel() {
 
-    internal val games = MutableStateFlow<Resource<List<GameMarker>>>(Resource.success(emptyList()))
+    internal val games = MutableStateFlow<Resource<List<GameMarker>>>(Resource.loading())
 
     internal fun searchGames(query: String, steamAppID: String? = null, limit: Int, exact: Boolean) {
         val params = SearchGamesUseCase.Params(query, steamAppID, limit, exact)
