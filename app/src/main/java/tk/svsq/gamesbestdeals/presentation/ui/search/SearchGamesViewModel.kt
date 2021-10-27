@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import tk.svsq.gamesbestdeals.data.common.Resource
 import tk.svsq.gamesbestdeals.domain.interactor.SearchGamesUseCase
 import tk.svsq.gamesbestdeals.domain.model.game.GameMarker
+import tk.svsq.gamesbestdeals.domain.model.game.SearchParams
 import javax.inject.Inject
 
 @HiltViewModel
@@ -15,8 +16,10 @@ class SearchGamesViewModel @Inject constructor(
 
     internal val games = MutableStateFlow<Resource<List<GameMarker>>>(Resource.loading())
 
-    internal fun searchGames(query: String, steamAppID: String? = null, limit: Int, exact: Boolean) {
-        val params = SearchGamesUseCase.Params(query, steamAppID, limit, exact)
+    internal var searchParams: SearchParams = SearchParams("", null)
+
+    internal fun searchGames() {
+        val params = SearchGamesUseCase.Params(searchParams)
         searchGamesUseCase(params) {
             it.onSuccess {
                 games.value = Resource.success(it)
