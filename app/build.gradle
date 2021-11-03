@@ -3,7 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
-    id("kotlin-parcelize")
+    id "kotlin-parcelize"
 }
 
 android {
@@ -72,8 +72,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
 
     //network logger
-    debugImplementation 'com.mocklets:pluto:1.1.1'
-    releaseImplementation 'com.mocklets:pluto-no-op:1.1.1'
+    debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
+    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.2"
 
     // API
     implementation "com.squareup.retrofit2:retrofit:2.9.0"

@@ -1,12 +1,15 @@
 package tk.svsq.gamesbestdeals.di
 
 import android.app.Application
+import android.content.Context
 import androidx.viewbinding.BuildConfig
+import com.chuckerteam.chucker.api.ChuckerCollector
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.gson.GsonBuilder
-import com.mocklets.pluto.PlutoInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -49,6 +52,7 @@ class NetworkModule {
     @Singleton
     fun provideOkHttpClient(
         cache: Cache,
+        @ApplicationContext context: Context,
         //authInterceptor: HttpAuthInterceptor,
         loggingInterceptor: Interceptor,
     ): OkHttpClient = OkHttpClient.Builder().apply {
@@ -56,16 +60,23 @@ class NetworkModule {
         connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
         readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
         writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
-        addInterceptors()
+        addInterceptors(context)
         if (BuildConfig.DEBUG) {
             addInterceptor(loggingInterceptor)
         }
     }.build()
 
-    private fun OkHttpClient.Builder.addInterceptors(): OkHttpClient.Builder {
+    private fun OkHttpClient.Builder.addInterceptors(context: Context): OkHttpClient.Builder {
 //    addInterceptor(GzipRequestInterceptor())
-        //addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        addInterceptor(PlutoInterceptor())
+        addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        addInterceptor(
+            ChuckerInterceptor.Builder(context)
+                .collector(ChuckerCollector(context))
+                .maxContentLength(250000L)
+                .redactHeaders(emptySet())
+                .alwaysReadResponseBody(false)
+                .build()
+        )
         return this
     }
 
