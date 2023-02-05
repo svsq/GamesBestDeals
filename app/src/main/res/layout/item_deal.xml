@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_margin="@dimen/half_margin"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/light_gray"
+    app:cardBackgroundColor="@color/deal_card_bg_color"
     app:cardCornerRadius="@dimen/rv_card_corners"
     android:orientation="vertical">
 
@@ -23,20 +23,24 @@
             app:layout_constraintTop_toTopOf="@id/ivPicture">
 
             <TextView
+                style="@style/TextTitle"
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_title"
-                android:textStyle="bold"
-                android:textColor="@color/black"
                 tools:text="Example Game Title" />
 
             <TextView
+                style="@style/TextReleaseDate"
+                android:id="@+id/tvStoreName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Example Game Title" />
+
+            <TextView
+                style="@style/TextReleaseDate"
                 android:id="@+id/tvReleaseDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_release_date"
                 tools:text="Release date: 20.11.1998" />
 
             <TextView

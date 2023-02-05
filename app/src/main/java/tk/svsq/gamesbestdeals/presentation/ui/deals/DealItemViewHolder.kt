@@ -1,6 +1,5 @@
 package tk.svsq.gamesbestdeals.presentation.ui.deals
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -25,6 +24,7 @@ class DealItemViewHolder(private val dealItemBinding: ItemDealBinding) :
         fun bind(deal: Deal) {
             with(dealItemBinding) {
                 tvTitle.text = deal.title
+                tvStoreName.text = if(deal.storeID == "1") "Steam" else deal.storeID
                 tvReleaseDate.text = getReleaseDate(deal)
                 tvRegularPrice.text = "Regular price: \$${deal.normalPrice}"
                 tvSalePrice.text = "Sale price: \$${deal.salePrice}"
